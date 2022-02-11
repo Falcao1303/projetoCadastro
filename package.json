@@ -1,0 +1,26 @@
+{
+  "name": "cadastro",
+  "version": "1.0.0",
+  "description": "cadastro teste",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Falcao1303/projetoCadastro.git"
+  },
+  "author": "Lucas Falcão",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Falcao1303/projetoCadastro/issues"
+  },
+  "homepage": "https://github.com/Falcao1303/projetoCadastro#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "consign": "^0.1.6",
+    "express": "^4.17.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.15"
+  }
+}
