@@ -47,13 +47,39 @@ const conexao = require('../connections/conexao')
         }
 
         buscaPorId(id,res){
-            const sql = `SELECT * FROM atendimentos where id = ${id}`
+            const sql = `SELECT * FROM usuarios where id = ${id}`
             conexao.query(sql,(erro,resultados)=>{
-                const atendimento = resultados[0];
+                const usuario = resultados[0];
                 if(erro){
                     res.status(400).json(erro)
                 }else{
-                    res.status(200).json(atendimento)
+                    res.status(200).json(usuario)
+                }
+            })
+        }
+
+        verificaUsuario(usuario,res){
+            const sql = `SELECT * FROM usuarios where usuario like '%${usuario}%'`
+
+            conexao.query(sql,(erro,resultados)=>{
+                const quantidade = resultados.length;
+                if(erro){
+                    res.status(400).json(erro)
+                }else{
+                    res.status(200).json(quantidade)
+                }
+            })
+        }
+
+        verificaSenha(usuario,res){
+            const sql = `SELECT * FROM usuarios where usuario like '%${usuario.usuario}%' and senha like '%${usuario.senha}%'`
+
+            conexao.query(sql,(erro,resultados)=>{
+                const quantidade = resultados.length;
+                if(erro){
+                    res.status(400).json(erro)
+                }else{
+                    res.status(200).json(quantidade)
                 }
             })
         }
@@ -61,7 +87,7 @@ const conexao = require('../connections/conexao')
         altera(id, valores, res) {
             const sql = 'UPDATE usuarios SET ? WHERE id=?'
     
-            conexao.query(sql, [valores, id], (erro, resultados) => {
+            conexao.query(sql, [valores.params, id], (erro, resultados) => {
                 if(erro) {
                     res.status(400).json(erro)
                 } else {
