@@ -13,6 +13,7 @@ var app = angular.module('ngApplogin', []);
       vm.lista = lista;
       vm.alterarUser = alterarUser;
       vm.editar = editar;
+      vm.excluirUser = excluirUser;
       vm.verificaLogin = verificaLogin;
       vm.verificaSenha = verificaSenha;
       iniciarController();
@@ -94,9 +95,14 @@ var app = angular.module('ngApplogin', []);
           params
       },
           '/usuarios/salvar');
+          $timeout(function () {window.location.pathname = '/cadastro/lista' });
       }
 
-
+      async function excluirUser(id){
+        await $rootScope.chamaRequisicaoPOST({},
+          '/usuarios/deleta/'+ id);
+          getRegistros();
+      }
 
 
       async function getRegistros(){

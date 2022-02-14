@@ -105,7 +105,7 @@
                             <td class="ep-relatorio-detalhes-font-lg">{{usuario.senha}}</td>
                             <td class="ep-relatorio-detalhes-font-lg">{{usuario.nome}}</td>
                             <td class="ep-relatorio-detalhes-font-lg">{{usuario.email}}</td>
-                            <td class="text-center"><button class="btn btn-info fa fa-plus" ng-click="alterarUser(usuario.id)"></button></td>
+                            <td><button class="btn btn-info fa fa-pencil" ng-click="alterarUser(usuario.id)"></button> - <button class="btn btn-danger fa fa-trash" ng-click="excluirUser(usuario.id)"></button></td>
                         </tr>
                     </tbody>
                 </table>

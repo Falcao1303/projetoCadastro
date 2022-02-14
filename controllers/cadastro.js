@@ -44,18 +44,14 @@ routes.get('/usuarios/:id',(req,res)=>{
     data.altera(id, valores, res)
 })
 
-routes.delete('/usuarios/:id', (req, res) => {
+routes.post('/usuarios/deleta/:id', (req, res) => {
     const id = parseInt(req.params.id)
 
     data.deleta(id, res)
 })
 
 routes.post('/usuarios/salvar', function (req, res) {
-   res.setHeader("Access-Control-Allow-Origin", "*")
-   res.setHeader("Access-Control-Allow-Credentials", "true");
-   res.setHeader("Access-Control-Max-Age", "1800");
-   res.setHeader("Access-Control-Allow-Headers", "content-type");
-   res.setHeader( "Access-Control-Allow-Methods", "PUT, POST, GET, DELETE, PATCH, OPTIONS" );
+
     const user = req.body.params;
     data.salvar(user,res);
 });
