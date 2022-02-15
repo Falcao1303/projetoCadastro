@@ -1,30 +1,6 @@
 <style>
 
-/* .ep-relresumo-detalhes-header-lg {
-        font-size: 1.5rem;
-        padding: 7.5px 12.5px;
-        text-align: unset !important;
-    }
-    .ep-relresumo-detalhes-alert {
-        border: unset;
-    }
-    .ep-relresumo-detalhes-modal-body {
-        display: grid;
-        padding: 15px;
-        gap: 15px;
-        grid-template-columns: auto auto;
-    }
-    .ep-relresumo-detalhes-modal-body > div {
-        margin: 0;
-    }
-    .ep-relresumo-detalhes-grid-area-pedido {
-        grid-area: pedido;
-        gap: inherit;
-        width: 100%;
-        padding: 15px;
-    } */
-
-    .box-login {
+    .box {
         display: flex;
         justify-content: center;
         background-color: skyblue;
@@ -76,7 +52,7 @@
         <title>Cadastro</title>
     </head>
     <body>
-        <div class = "box-login">
+        <div class = "box">
             <div class="box-form">
                 <div class="row">
                 <p>Cadastro</p>
@@ -87,7 +63,7 @@
                       </div>
                       <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">CPF</label>
-                        <input type="text" class="form-control" ng-model="usuarioModel.cpf"id="exampleFormControlInput1" numeric-only >
+                        <input type="number" class="form-control" ng-model="usuarioModel.cpf"id="exampleFormControlInput1" numeric-only >
                       </div>
                       <div class="mb-3">
                         <label for="exampleFormControlInput1" class="form-label">E-mail</label>
@@ -103,7 +79,9 @@
                         <span id="spnMostrarSenha"  class="glyphicon glyphicon glyphicon-eye-open form-control-feedback"></span>
                         <input type="checkbox" style = "margin-top:10px;" ng-model="showpassword" ng-checked="false"> MostrarSenha                      
                       </div>
-                    <button type="submit" id="button-submit" class="btn btn-primary" ng-click="cadastrar()">Submit</button>
+                      <div>
+                         <button type="submit" style="margin-left: -5px;" id="button-submit" class="btn btn-primary" ng-click="cadastrar()">Cadastrar</button>
+                    </div>
                   </form>
                 </div>
         </div>

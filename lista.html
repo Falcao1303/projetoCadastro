@@ -1,11 +1,5 @@
 <style>
 
-
-    .box-login {
-        display: flex;
-        justify-content: center;
-        background-color: skyblue;
-    }
     
     .box-form {
         display: flex;
@@ -46,7 +40,7 @@
     <body>
         <div class="wrapper wrapper-content ">
 
-        
+            <button type="button" class="btn btn-primary" ng-click="voltarHome()">Voltar</button>
     <div class="row">
         <div id="Cadastro" ng-if="mostrarEdicao">
             <div class="modal-dialog modal-lg" style="width: 100%;">
@@ -60,7 +54,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">CPF</label>
-                                <input type="text" class="form-control" ng-model="edicaoModel.cpf"id="exampleFormControlInput1" numeric-only >
+                                <input type="number" class="form-control" ng-model="edicaoModel.cpf"id="exampleFormControlInput1" numeric-only >
                               </div>
                               <div class="mb-3">
                                 <label for="exampleFormControlInput1" class="form-label">E-mail</label>
@@ -79,9 +73,6 @@
                             <button type="submit"style="margin-left:10px" id="button-submit" class="btn btn-primary" ng-click="editar()">Submit</button>
                           </form>
                         </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" ng-click="mostrarEdicao=false">Fechar</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -89,11 +80,11 @@
                     <div class="tabs-container">
                         <!-- ******************************LISTA****************************** -->
                         <div id="tabsContainer" class="tab-content">
-                            <div id="tab-lista" class="tabDetail tab-pane active">
+                            <div  class="tabDetail tab-pane active">
                             <div class="panel-body" style="padding: 10px;">
             <div class="table-responsive">
-                <table class="table table-stripped toggle-arrow-tiny small table-hover" aria-describedby="Lista Logs" infinite-scroll="carregarListaRegistros()" infinite-scroll-disabled="!listaRegistrosBusy.$$state.status || resumoLogModel.final" infinite-scroll-distance="0" style="margin-bottom: 0;">
-                    <thead class="ep-relatorio-detalhes-font-lg">
+                <table class="table table-stripped toggle-arrow-tiny small table-hover" style="margin-bottom: 0;">
+                    <thead>
                         <th scope="col">Usuario</th>
                         <th scope="col">Senha</th>
                         <th scope="col">Nome</th>
@@ -101,27 +92,35 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="usuario in users">   
-                            <td class="ep-relatorio-detalhes-font-lg">{{usuario.usuario}}</td>
-                            <td class="ep-relatorio-detalhes-font-lg">{{usuario.senha}}</td>
-                            <td class="ep-relatorio-detalhes-font-lg">{{usuario.nome}}</td>
-                            <td class="ep-relatorio-detalhes-font-lg">{{usuario.email}}</td>
+                            <td>{{usuario.usuario}}</td>
+                            <td>{{usuario.senha}}</td>
+                            <td>{{usuario.nome}}</td>
+                            <td>{{usuario.email}}</td>
                             <td><button class="btn btn-info fa fa-pencil" ng-click="alterarUser(usuario.id)"></button> - <button class="btn btn-danger fa fa-trash" ng-click="excluirUser(usuario.id)"></button></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-if="!listaRegistrosBusy.$$state.status" cg-busy="listaRegistrosBusy" style="min-height: 60px; width: 100%;"></div>
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-if="listaRegistrosBusy.$$state.status" style="min-height: 100px; width: 100%;">
-                <div class="widget p-m text-center animated fadeIn">
-                    <em class="fa fa-warning fa-2x m-b-sm"></em>
-                    <h4 class="font-bold no-margins">Nenhum registro encontrado</h4>
-                </div>
+            <button type="button" class="btn btn-primary" ng-click="listarCrawler()">Listar Crawler</button>
+            <div ng-if = "info">
+            <h1>Serviços listados pelo crawler</h1>
+            <p ng-if="busy">Carregando...</p>  
+            <div ng-if = "!busy">
+            <li>{{info.text1}}</li>
+            <li>{{info.text2}}</li>
+            <li>{{info.text3}}</li>
+            <li>{{info.text4}}</li>
+            <li>{{info.text5}}</li>
+            <li>{{info.text6}}</li>
+            <li>{{info.text7}}</li>
+            </div>
             </div>
         </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
              

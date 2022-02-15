@@ -21,10 +21,12 @@
     "angular-route": "^1.8.2",
     "app-root-path": "^3.0.0",
     "body-parser": "^1.19.1",
+    "cheerio": "^1.0.0-rc.10",
     "consign": "^0.1.6",
     "cors": "^2.8.5",
     "express": "^4.17.2",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "puppeteer": "^13.3.2"
   }
 }

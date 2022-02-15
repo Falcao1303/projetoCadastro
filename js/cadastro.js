@@ -16,6 +16,8 @@ var app = angular.module('ngApplogin', []);
       vm.excluirUser = excluirUser;
       vm.verificaLogin = verificaLogin;
       vm.verificaSenha = verificaSenha;
+      vm.voltarHome = voltarHome;
+      vm.listarCrawler = listarCrawler;
       iniciarController();
 
       function iniciarController(){
@@ -26,7 +28,7 @@ var app = angular.module('ngApplogin', []);
           senha: '',
           email: ''
         };
-        
+        //REQUISIÇÕES PARA O BACK-END
             $rootScope.chamaRequisicaoPOST = function (param, url) {
               return new Promise(function (resolve) {
                   vm.enviarRequisicaoPOST(param, url, $scope, function (response) {
@@ -70,6 +72,18 @@ var app = angular.module('ngApplogin', []);
 
       function lista(){
         $timeout(function () {window.location.pathname = '/cadastro/lista' });
+      }
+
+      function voltarHome(){
+        $timeout(function () {window.location.pathname = '/cadastro/home' });
+      }
+
+     async function listarCrawler(){
+        vm.busy = true;
+        vm.info =[];
+        vm.info = await $rootScope.chamaRequisicaoGET({},'/getInfo');
+        vm.busy = false;
+        vm.$digest();
       }
 
       async function alterarUser(id){
